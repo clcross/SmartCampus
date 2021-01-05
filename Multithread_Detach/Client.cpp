@@ -41,13 +41,13 @@ int main(int argc, char const *argv[])
     {
         cout << "Message to server:";
         cin.getline(user_input, 1024, '\n');
-        if (send(sock, user_input, strlen(user_input), 0) == -1)
+	if (send(sock, user_input, strlen(user_input), 0) == -1)
             break;
         if ((nBytes = read(sock, buffer, 1024)) == -1)
             break;
         buffer[nBytes] = 0;
         printf("Server replied:%s\n", buffer);
-    } while (strcmp(buffer, "Quit") != 0);
+    } while (strcmp(buffer, "Q") != 0);
     close(sock);
     return 0;
 }
