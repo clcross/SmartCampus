@@ -1,6 +1,16 @@
 #Libraries
 import RPi.GPIO as GPIO
 import time
+import mysql.connector
+
+mydb = mysql.connector.connect(
+	host = "localhost",
+	user = "cam",
+	password = "XSW@2wsx",
+	database = "SmartCampus"
+)
+
+mycursor = mydb.cursor()
  
 #GPIO Mode (BOARD / BCM)
 GPIO.setmode(GPIO.BCM)
@@ -46,6 +56,9 @@ def distance():
 	    global alreadyDetected
 	    alreadyDetected = True
 	    print("Motion Detected")
+	    sql = "UPDATE Campus SET Population = Population + 1 WHERE Location = 'Cafeteria'"
+	    mycursor.execute(sql)
+	    mydb.commit()
 	    return distance
 	else:
 	    return distance
