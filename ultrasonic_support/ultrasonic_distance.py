@@ -23,9 +23,10 @@ GPIO_ECHO = 24
 GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
 GPIO.setup(GPIO_ECHO, GPIO.IN)
 
-alreadyDetected = None
+#alreadyDetected = None
  
-def distance():
+def motionSensor():
+    global alreadyDetected
     # set Trigger to HIGH
     GPIO.output(GPIO_TRIGGER, True)
  
@@ -53,7 +54,7 @@ def distance():
     if(distance < 60):
 	#print("Motion Detected")
 	if(alreadyDetected == False):
-	    global alreadyDetected
+	    #global alreadyDetected
 	    alreadyDetected = True
 	    print("Motion Detected")
 	    sql = "UPDATE Campus SET Population = Population + 1 WHERE Location = 'Cafeteria'"
@@ -63,14 +64,14 @@ def distance():
 	else:
 	    return distance
     else:
-	global alreadyDetected
+	#global alreadyDetected
 	alreadyDetected = False
 	return distance
  
 if __name__ == '__main__':
     try:
         while True:
-            dist = distance()
+            dist = motionSensor()
             #print ("Measured Distance = %.1f cm" % dist)
             time.sleep(0.1)
  
