@@ -1,4 +1,38 @@
+h1{
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	color: #507fc1;
+}
+ul {
+	padding-right: 0;
+	padding-left: 0;
+	width: 75%;
+	list-style-type: none;
+	margin: auto;
+	padding: 0;
+	overflow: hidden;
+	background-color: #e3d59c;
+}
+ul h1{
+	float: left;
+	padding: 0px 16px;
+}
+li a {
+	float: right;
+	display: block;
+	color: #507fc1;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+li a:hover {
+	background-color: #507fc1;
+	color: #e3d59c;
+}
 table{
+        margin-left: auto;
+        margin-right: auto;
 	width: 15%;
 }
 th, td{
@@ -6,4 +40,13 @@ th, td{
 }
 th{
 	text-align: left;
+}
+img.map{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+img.map, map area{
+	
+	outline: none;
 }
