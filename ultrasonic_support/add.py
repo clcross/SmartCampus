@@ -4,7 +4,7 @@ import time
 import mysql.connector
 
 mydb = mysql.connector.connect(
-	host = "10.127.98.154",
+	host = "172.20.10.6",
 	user = "cam2",
 	password = "XSW@2wsx",
 	database = "SmartCampus"
